@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="false" />
+        <service id="Allekslar\MonofonyDemoBackendBundle\Grid\PetGrid">
+            <tag name="sylius.grid"/>
+            <argument>en</argument>
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="sylius.repository.taxon"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\Menu\PetFormBuilder" class="Allekslar\MonofonyDemoBackendBundle\Menu\PetFormBuilder" autowire="true" autoconfigure="true">
+            <tag name="knp_menu.menu_builder" method="createMenu" alias="monofony_demo_backend.backend.pet_form"/>
+            <argument type="service" id="knp_menu.factory"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\Factory\PetFactory" class="Allekslar\MonofonyDemoBackendBundle\Factory\PetFactory" autowire="true" autoconfigure="true">
+            <tag name="foundry.factory"/>
+            <argument>%kernel.project_dir%/vendor/allekslar/monofony-demo-backend/tests</argument>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,10 @@
+monofony_demo_backend_partial_booking_latest:
+    path: /latest/{count}
+    methods: [GET]
+    defaults:
+        _controller: monofony_demo.controller.booking::indexAction
+        _sylius:
+            repository:
+                method: findLatest
+                arguments: ['!!int $count']
+            template: $template

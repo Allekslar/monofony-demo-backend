@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="false" />
+        <service id="sylius.custom_factory.taxon.inner" class="Sylius\Component\Resource\Factory\TranslatableFactory">
+            <argument type="service">
+                <service class="Sylius\Component\Resource\Factory\Factory">
+                    <argument>Allekslar\MonofonyDemoBackendBundle\Entity\Taxonomy\Taxon</argument>
+                </service>
+            </argument>
+            <argument type="service" id="sylius.translation_locale_provider.immutable"/>
+        </service>
+        <service id="sylius.custom_factory.taxon" class="Sylius\Component\Taxonomy\Factory\TaxonFactory">
+            <argument type="service" id="sylius.custom_factory.taxon.inner"/>
+        </service>
+        <service id="sylius.generator.taxon_slug" class="Sylius\Component\Taxonomy\Generator\TaxonSlugGenerator" />
+        <service id="Sylius\Component\Taxonomy\Generator\TaxonSlugGeneratorInterface" alias="sylius.generator.taxon_slug" />
+        <service id="Allekslar\MonofonyDemoBackendBundle\Factory\TaxonFactory" class="Allekslar\MonofonyDemoBackendBundle\Factory\TaxonFactory" autowire="true" autoconfigure="true">
+            <tag name="foundry.factory"/>
+            <argument type="service" id="sylius.custom_factory.taxon"/>
+            <argument type="service" id="sylius.repository.taxon"/>
+            <argument type="service" id="sylius.repository.locale"/>
+            <argument type="service" id="sylius.generator.taxon_slug"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\Grid\Filter\TaxonFilter" class="Allekslar\MonofonyDemoBackendBundle\Grid\Filter\TaxonFilter" autowire="true" autoconfigure="true">
+            <tag name="sylius.grid_filter" type="taxon_filter" form_type="Allekslar\MonofonyDemoBackendBundle\Form\Filter\TaxonFilterType"/>
+            <argument type="service" id="sylius.repository.taxon"/>
+            <argument>en</argument>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\Form\Filter\TaxonFilterType" class="Allekslar\MonofonyDemoBackendBundle\Form\Filter\TaxonFilterType" autowire="true" autoconfigure="true">
+            <tag name="form.type"/>
+            <argument>en</argument>
+            <argument type="service" id="request_stack"/>
+            <argument type="service" id="sylius.repository.taxon"/>
+        </service>
+    </services>
+</container>

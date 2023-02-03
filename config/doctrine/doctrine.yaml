@@ -1,0 +1,10 @@
+doctrine:
+orm:
+    auto_mapping: true
+    mappings:
+       MonofonyDemoBackendBundle:
+          type: attribute
+          alias: MonofonyDemoBackendBundle
+          prefix: MonofonyDemoBackendBundle\Entity
+          dir: %kernel.root_dir%/../../monofony-demo-backend/src/Entity
+          is_bundle: true

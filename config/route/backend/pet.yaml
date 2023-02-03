@@ -1,0 +1,66 @@
+monofony_demo_backend_pet:
+    resource: |
+        alias: monofony_demo.pet
+        section: backend
+        # except: ['index']
+        redirect: update
+        grid: monofony_demo_backend_pet
+        vars:
+            all:
+                subheader: monofony_demo_backend.ui.managing_pets
+                templates:
+                    form: "@MonofonyDemoBackend/backend/pet/_form.html.twig"
+        templates: '@MonofonyDemoBackend/backend/crud'
+    type: sylius.resource
+
+monofony_demo_backend_pet_show:
+    methods: [GET]
+    path: /pets/{id}
+    defaults:
+        _controller: monofony_demo.controller.pet::showAction
+        _sylius:
+            section: backend
+            template: '@MonofonyDemoBackend/backend/pet/show.html.twig'
+            vars:
+                toolbar: '@MonofonyDemoBackend/backend/pet/show/_toolbar.html.twig'
+
+monofony_demo_backend_pet_index:
+    path: /pets/
+    methods: [GET]
+    defaults:
+        _controller: monofony_demo.controller.pet::indexAction
+        _sylius:
+            section: backend
+            permission: true
+            grid: monofony_demo_backend_pet
+            template: "@MonofonyDemoBackend/backend/pet/index.html.twig"
+            vars:
+                subheader: monofony_demo_backend.ui.managing_pets
+                icon: cat
+
+monofony_demo_backend_pet_per_taxon_index:
+    path: /pets/taxon/{taxonId}
+    methods: [GET]
+    defaults:
+        _controller: monofony_demo.controller.pet::indexAction
+        _sylius:
+            section: backend
+            permission: true
+            grid: monofony_demo_backend_pet
+            template: "@MonofonyDemoBackend/backend/pet/index.html.twig"
+            vars:
+                subheader: monofony_demo_backend.ui.managing_pets
+                icon: cat
+
+monofony_demo_backend_pet_update_state:
+    methods: [PATCH]
+    path: /pets/{id}/status/{transition}
+    defaults:
+        _controller: monofony_demo.controller.pet::applyStateMachineTransitionAction
+        _sylius:
+            section: backend
+            state_machine:
+                graph: monofony_demo_backend_pet
+                transition: $transition
+            csrf_protection: false
+            redirect: referer

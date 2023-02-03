@@ -1,0 +1,3 @@
+allekslar_monofony_demo_backend_route:
+    resource: "@MonofonyDemoBackendBundle/config/route/routes.yaml"
+

@@ -1,0 +1,11 @@
+monofony_demo_backend_partial_animal:
+    resource: partial/animal.yaml
+    prefix: /animals
+
+monofony_demo_backend_partial_booking:
+    resource: partial/booking.yaml
+    prefix: /bookings
+
+sylius_admin_partial_taxon:
+    resource: partial/taxon.yaml
+    prefix: /taxons

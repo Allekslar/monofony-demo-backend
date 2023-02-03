@@ -1,0 +1,13 @@
+<div class="eight wide column" id="info">
+    <div class="ui fluid card">
+        <div class="content">
+            <a href="{{ path('monofony_demo_backend_booking_update', {'id': booking.id}) }}" class="header">
+                {{ booking.status|default('monofony_demo_backend.ui.status'|trans) }}
+            </a>
+            <div class="meta">
+                <span class="date">{{ 'monofony_demo_backend.ui.booking_since'|trans }} {{ booking.createdAt|date }}</span>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

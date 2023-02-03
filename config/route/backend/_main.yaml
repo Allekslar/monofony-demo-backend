@@ -1,0 +1,15 @@
+monofony_demo_backend_partial:
+    resource: "partial.yaml"
+    prefix: /_partial
+
+sylius_backend_ajax:
+    resource: "ajax/taxon.yaml"
+
+monofony_demo_backend_pet:
+    resource: "pet.yaml"
+
+monofony_demo_backend_booking:
+    resource: "booking.yaml"
+
+sylius_backend_taxon:
+    resource: "taxon.yaml"

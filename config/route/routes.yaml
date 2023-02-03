@@ -1,0 +1,5 @@
+monofony_demo_backend:
+    resource: "backend/_main.yaml"
+    prefix: admin
+
+   

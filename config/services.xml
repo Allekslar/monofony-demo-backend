@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="taxon.xml"/>
+        <import resource="pet.xml"/>
+        <import resource="booking.xml"/>
+    </imports>
+    <parameters>
+        <parameter key="sylius.form.type.locale.validation_groups" type="collection">
+            <parameter>sylius</parameter>
+        </parameter>
+    </parameters>
+    <services>
+        <defaults public="false" />
+        <service id="Allekslar\MonofonyDemoBackendBundle\Menu\MenuListener">
+            <tag event="sylius.menu.admin.main" method="addNewMenu" name="kernel.event_listener"/>
+            <argument type="service" id="knp_menu.factory"/>
+            <argument type="service" id="debug.event_dispatcher"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\DataFixtures\DefaultFixtures" class="Allekslar\MonofonyDemoBackendBundle\DataFixtures\DefaultFixtures" autowire="true" autoconfigure="true">
+            <tag name="doctrine.fixture.orm"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\DataFixtures\FakeFixtures" class="Allekslar\MonofonyDemoBackendBundle\DataFixtures\FakeFixtures" autowire="true" autoconfigure="true">
+            <tag name="doctrine.fixture.orm"/>
+        </service>
+        <service id="Allekslar\MonofonyDemoBackendBundle\Factory\LocaleFactory" class="Allekslar\MonofonyDemoBackendBundle\Factory\LocaleFactory" autowire="true" autoconfigure="true">
+            <tag name="foundry.factory"/>
+            <argument type="service" id="sylius.factory.locale"/>
+            <argument>en</argument>
+        </service>
+        <service id="sylius.repository.locale" class="Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository" public="true" lazy="true">
+            <argument>Sylius\Component\Locale\Model\Locale</argument>
+            <factory service="doctrine.orm.default_entity_manager" method="getRepository"/>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,22 @@
+sylius_backend_taxon:
+    resource: |
+        alias: sylius.taxon
+        path: taxons
+        section: backend
+        except: ['show']
+        redirect: update
+        vars:
+            all:
+                subheader: sylius.ui.managing_taxons
+                templates:
+                    form: '@MonofonyDemoBackend/backend/taxon/_form.html.twig'
+        templates: '@MonofonyDemoBackend/backend/taxon'
+    type: sylius.resource
+
+sylius_backend_taxon_index:
+    path: /taxons/
+    methods: [GET]
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: sylius_backend_taxon_create
+        permanent: true

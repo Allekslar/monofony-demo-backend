@@ -1,0 +1,19 @@
+sylius_resource:
+    resources:
+        monofony_demo.pet:
+            classes:
+                model: Allekslar\MonofonyDemoBackendBundle\Entity\Animal\Pet
+                repository: Allekslar\MonofonyDemoBackendBundle\Repository\PetRepository
+                form: Allekslar\MonofonyDemoBackendBundle\Form\Type\Pet\PetType
+        monofony_demo.booking:
+            classes:
+                model: Allekslar\MonofonyDemoBackendBundle\Entity\Booking\Booking
+                
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Allekslar\MonofonyDemoBackendBundle\Entity\Taxonomy\Taxon
+
+             

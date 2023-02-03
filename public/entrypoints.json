@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "demo": {
+      "css": [
+        "/bundles/monofonydemobackend/css/demo.css"
+      ],
+      "js": [
+        "/bundles/monofonydemobackend/js/demo.js"
+      ]
+    }
+  }
+}

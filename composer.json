@@ -1,0 +1,58 @@
+{
+    "name": "allekslar/monofony-demo-backend",
+    "type": "symfony-bundle",
+    "description": "package based on Monofony/Demo for a quick demo of the backend",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Aleks",
+            "email": "websiteservise@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "api-platform/core": "^3.0",
+        "allekslar/monofony-menu-extension": "^1.0",
+        "stof/doctrine-extensions-bundle": "^1.7",
+        "sylius/locale-bundle": "^1.12",
+        "sylius/taxonomy-bundle": "^1.12",
+        "nelmio/cors-bundle": "^2.2",
+        "symfony/workflow": "6.1.*",
+        "symfony/messenger": "6.1.*"
+    },
+    "require-dev": {
+        "symfony/config": "^6.0",
+        "symfony/dependency-injection": "^6.0",
+        "symfony/http-kernel": "^6.0",
+        "symfony/phpunit-bridge": "^6.0",
+        "symplify/easy-coding-standard": "^11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Allekslar\\MonofonyDemoBackendBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Allekslar\\MonofonyDemoBackendBundle\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "post-install": [
+            "php -r \"copy('./config/copy/routes/monofony_demo_backend.yaml', '../../../config/routes/monofony_demo_backend.yaml');\""
+        ],
+        "remove": [
+            "php -r \"unlink('../../../config/routes/monofony_demo_backend.yaml');\""
+        ]
+    }
+}

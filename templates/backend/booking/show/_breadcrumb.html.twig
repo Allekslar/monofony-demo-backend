@@ -1,0 +1,9 @@
+{% import '@SyliusUi/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+    { label: 'sylius.ui.administration'|trans, url: path('app_backend_dashboard') },
+    { label: 'monofony_demo_backend.ui.bookings'|trans, url: path('monofony_demo_backend_booking_index') },
+    { label: booking.status }
+] %}
+
+{{ breadcrumb.crumble(breadcrumbs) }}

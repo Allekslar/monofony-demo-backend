@@ -1,0 +1,20 @@
+imports:
+    - { resource: "sylius/monofony_demo_backend_resource.yaml" }
+    - { resource: "packages/stof_doctrine_extensions.yaml" }
+    - { resource: "packages/vich_uploader.yaml" }
+    - { resource: "packages/liip_imagine.yaml" }
+
+services:
+    app.form.type.taxonomy.taxon_position:
+        class: Allekslar\MonofonyDemoBackendBundle\Form\Type\Taxonomy\TaxonPositionType
+        tags:
+            - { name: form.type }
+        arguments:
+            - '%sylius.model.taxon.class%'
+
+    sylius.admin.layout.javascripts:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@MonofonyDemoBackend/backend/_javascripts.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.layout.javascripts, method: onBlockEvent }        

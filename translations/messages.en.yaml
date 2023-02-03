@@ -1,0 +1,123 @@
+app:
+    ui:
+        admin: Admin
+        adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
+        adopted_pet: Adopted pet
+        any_questions_lets_talk: Any question? Let’s talk!
+        ask_for_a_visit: Ask for a visit!
+        at_least_4_characters_long: At least 4 characters long.
+        avatar: Avatar
+        beige: Beige
+        black: Black
+        booking: Booking
+        bookings: Bookings
+        booker: Booker
+        brown: Brown
+        status: status
+        new: new
+        bookable: bookable
+        booked: booked
+        adopted: adopted
+        browse_all_pets: Browse all pets
+        centimeter: Centimeter
+        check_all_your_reservations_statuses: Check all your reservations statuses
+        contact: Contact
+        create_user: Create an user
+        customer_name: Customer name
+        edit_pet: Edit pet
+        female: Female
+        forgotten_password: Forgotten password
+        ginger: Ginger
+        grey: Grey
+        happy_to_see_you_again: Happy to see you again
+        i_cant_remember_my_password: I can't remember my password
+        identity: Identity
+        it_is_nice_to_meet_you: It's nice to meet you!
+        legal_notices: Legal notices
+        lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
+        lets_find_a_cats: Let’s find a cat!
+        lets_find_a_dogs: Let’s find a dog!
+        lets_find_a_small_pets: Let’s find a small pet!
+        lightgrey: Light grey
+        main_color: Main color
+        male: Male
+        manage_your_bookings: Manage your bookings
+        manage_your_pets: Manage your pets
+        medium: Medium
+        meter: Meter
+        millimeter: Millimeter
+        moreover_he_will_be_marked_as_reserved: Moreover, he will be marked as reserved.
+        new_bookings: New bookings
+        new_pet: New pet
+        new_pets: New pets
+        no_main_color: No main color
+        orange: Orange
+        overview_of_your_website: Overview of you website
+        pet: Pet
+        pet_is_reserved: "%animal% is reserved"
+        pet_name: Pet name
+        pets: Pets
+        requested_visit: Requested visit
+        reservation: Reservation
+        scheduled_visit: Scheduled visit
+        search_customers: Search customers
+        sex: Sex
+        show_me_more: Show me more!
+        show_on_github: Show on Github
+        size: Size
+        size_unit: Size unit
+        small: Small
+        tall: Tall
+        taxon: Taxon
+        tell_us_more_about_yourself: Tell us more about yourself.
+        they_cant_wait_to_meet_you: They can’t wait to meet you!
+        this_one_is_about_to_meet_their_new_family: This one is about to meet his new family!
+        validate: Validate
+        view_website: View website
+        what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
+        white: White
+        you_are_right_security_first: You’re right, security first!
+        you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
+        you_will_be_contacted_soon_to_schedule_a_visit: You will be contacted soon to schedule a visit.
+sylius:
+    ui:
+        adopted: Adopted
+        bookable: Bookable
+        booked: Booked
+        canceled: Canceled
+        family_contacted: Family contacted
+        finished: Finished
+        refused: Refused
+        validated: Validated
+        visit_scheduled: Visit scheduled
+        taxa: Taxa
+        managing_taxons: Managing taxons
+Booker: Booker  
+Status:	Status  
+Pet:	Pet   
+Taxon:	Taxon 
+---:	---
+search:	search
+Name:	Name
+monofony_demo_backend:
+    ui:
+        pets: Pets
+        manage_your_pets: Manage your pets
+        browse_all_pets: Browse all pets
+        managing_pets: Manage pets
+        new_pet: New pet
+        new_pets: New pets
+        booking: Booking
+        bookings: Bookings
+        new_booking: New bookings
+        managing_bookings: Manage bookings
+        edit_pet: Edit pet
+        status:	Status
+        booking_since: Booking since 
+        edit_booking:  Edit Booking
+monofony_demo:
+    ui:
+        pets: Petss
+        bookings: Bookins
+        edit_booking:  Edit Booking
+        edit_pet: Edit pet
